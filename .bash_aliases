@@ -1,0 +1,12 @@
+alias mssql="sqlcmd -S localhost -U SA -P P4ssword"
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+alias asl="cd ~/Sites/asl-comm && nvm use 6.17.1 && code ."
+alias composer="php /usr/local/bin/composer.phar"
+alias cdp-sites="cd ~/Sites/cdp/cdp-sites && nvm use 10.7.0 && npx concurrently 'npm run dev-api' 'npm run start'"
+alias cdp-my="nvm use 12.13.0 && npx concurrently 'cd ~/Sites/cdp/cdp-my-api/ && yarn run dev' 'cd ~/Sites/cdp/cdp-my/ && yarn run start'"
+alias cdp-tools="nvm use 10.7.0 && cd ~/Sites/cdp/simsaw-scraper/ && npx gulp"
+alias cdp-schedule="nvm use 10.7.0 && cd ~/Sites/cdp/cdp-schedule/ && npx sequelize db:migrate && npx concurrently 'npm run dev-api' 'npm start'"
+alias cdp-leads="nvm use 6.12.3 && cd ~/Sites/cdp/cdp-leads && npm run dev"
+alias cdp-udr="nvm use 10.7.0 && cd ~/Sites/cdp/cdp-udr && npx sequelize db:migrate && npx concurrently 'npm run dev-api' 'npm start'"
+alias un="cd ~/Standard\ Notes\ Backups/ && git add -A && git commit -am 'update notes - $(date)' && git push -u origin master"
+alias uf="cd ~/Downloads/ && wget -O firefox.tar.bz2 'https://download.mozilla.org/?product=firefox-devedition-latest-ssl&os=linux64&lang=en-US' && tar -xf firefox.tar.bz2 && sudo cp -rf firefox/* /opt/firefox_dev && rm -rf firefox.tar.bz2 firefox/"
