@@ -1,0 +1,114 @@
+{
+	"layer": "top",
+	"position": "bottom",
+	"margin": 0,
+	"height": 24,
+	"modules-left": [
+		"sway/workspaces",
+		"disk",
+		"custom/days_installed",
+		"custom/uptime",
+		"custom/gpu"
+	],
+	"modules-right": [
+		"network",
+		"memory",
+		"cpu",
+		"temperature",
+		"battery",
+		"tray",
+		"clock#date",
+		"clock#time"
+	],
+	// Modules
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"all-outputs": true,
+		"warp-on-scroll": false,
+		"format": "{name}"
+	},
+	"battery": {
+		"interval": 10,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format-time": "{H}:{M:02}",
+		"format": "{icon} {capacity}% {time}",
+		"format-charging": " {capacity}% {time}",
+		"format-charging-full": " {capacity}%",
+		"format-full": "{icon} {capacity}%",
+		"format-alt": "{icon} {power}W",
+		"format-icons": [
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"tooltip": false
+	},
+	"clock#time": {
+		"interval": 10,
+		"format": "{:%H:%M}",
+		"tooltip": false
+	},
+	"clock#date": {
+		"interval": 20,
+		"format": "{:%e %b %Y}",
+		"tooltip": false
+		//"tooltip-format": "{:%e %B %Y}"
+	},
+	"cpu": {
+		"interval": 5,
+		"tooltip": false,
+		"format": " {usage}%",
+		"format-alt": " {load}",
+		"states": {
+			"warning": 70,
+			"critical": 90
+		}
+	},
+	"memory": {
+		"interval": 5,
+		"format": "{used:0.1f}G/{total:0.1f}G",
+		"states": {
+			"warning": 70,
+			"critical": 90
+		},
+		"tooltip": false
+	},
+	"network": {
+		"interval": 5,
+		"format-wifi": "{essid} ({signalStrength}%)",
+		"format-ethernet": "{ifname}",
+		"format-disconnected": "No connection",
+		"format-alt": "{ipaddr}/{cidr}",
+		"tooltip": false
+	},
+	"tray": {
+		"icon-size": 14,
+		"spacing": 10
+	},
+	"disk": {
+		"format": "{specific_free:0.0f}/{specific_total:0.0f}GB",
+		"unit": "GB",
+		"tooltip": false
+	},
+	"custom/days_installed": {
+		"format": "{}",
+		"exec": "/usr/local/bin/waybar_days_installed.sh",
+		"interval": 86400
+	},
+	"custom/uptime": {
+		"format": "{}",
+		"exec": "/usr/local/bin/waybar_uptime.sh",
+		"interval": 300
+	},
+	"custom/gpu": {
+		"format": "{}",
+		"exec": "/usr/local/bin/waybar_gpu.sh",
+		"interval": 5
+	}
+}
+// vi:ft=jsonc

@@ -1,0 +1,20 @@
+[global]
+font = SFMono Nerd Font Mono 10 
+foreground = "#ffffff"
+background = "#222436"
+frame_color = "#f36d74"
+frame_width = 5
+origin = top-center
+offset = 10x10
+width = 700
+monitor = 0
+follow = keyboard
+
+[urgency_low]
+timeout = 3 
+
+[urgency_normal]
+timeout = 7
+
+[urgency_critical]
+timeout = 0

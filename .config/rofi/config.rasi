@@ -1,0 +1,77 @@
+/* ROFI SQUARED THEME USING THE EVERFOREST PALETTE  */
+/* Author: Newman Sanchez (https://github.com/newmanls) */
+
+* {
+    font:   "SFMono Nerd Font Mono 10";
+
+    bg0:     #414260;
+    bg1:     #323D43;
+    fg0:     #DBBC7F;
+
+    accent-color:     #A7C080;
+    urgent-color:     #DBBC7F;
+
+    background-color:   transparent;
+    text-color:         @fg0;
+
+    margin:     0;
+    padding:    0;
+    spacing:    0;
+}
+
+window {
+    location:   center;
+    width:      480;
+    padding: 0;
+    background-color:   #292937;
+}
+scrollbar {
+    width:        0;
+    border:       0;
+    handle-width: 0;
+    padding:      0;
+}
+inputbar {
+    spacing:    8px;
+    padding:    10px;
+
+    background-color:   #292937;
+}
+prompt {
+    text-color: @accent-color;
+}
+entry {
+    text-color: @accent-color;
+}
+textbox {
+    padding:            8px;
+    background-color:   @bg0;
+}
+listview {
+    padding:    0;
+    lines:      8;
+    columns:    1;
+    spacing:    0;
+    fixed-height:   false;
+}
+element {
+    padding:    10px;
+    spacing:    0;
+}
+element-icon {
+    padding: 0 10px 0 0;
+}
+element-text {
+    margin: -2px 0 0 0;
+}
+element selected normal, element selected active {
+    background-color:   @accent-color;
+    text-color: #000000;
+}
+element normal normal, element alternate normal {
+    background-color: #292937;
+    text-color: @fg0;
+}
+
+
+
