@@ -1,0 +1,5 @@
+asusctl
+expressvpn
+gnu-netcat
+rog-control-center
+xf86-video-vmware
