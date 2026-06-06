@@ -41,7 +41,7 @@ for_window [app_id="pacman-installer"] floating enable,  resize set 800 600, mov
 for_window [app_id="hud-terminal"] floating enable,  resize set 800 600, move position center
 for_window [app_id="network-manager"] floating enable, resize set 800 600, move position center
 for_window [app_id="xpad"] floating enable, resize set 450 450, move position center
-
+for_window [app_id="vlc"] floating enable, resize set 1280 720, move position center
 assign [app_id="steam"] workspace 3
 
 exec waybar
@@ -49,6 +49,7 @@ exec swaymsg 'workspace 1; exec kitty; workspace back_and_forth'
 exec swaymsg 'workspace 2; exec firefox; workspace back_and_forth'
 exec swaymsg 'workspace 3; exec firefox --no-remote -P "work.cdp"; workspace back_and_forth'
 exec ~/.wallpaper/bing/bing_dl.sh
+#exec_always /usr/local/bin/workspace_switch.sh
 
 # Custom Keybindings
 bindsym $mod+Shift+p exec $pacman
@@ -56,7 +57,7 @@ bindsym $mod+Shift+Return exec $hudterm
 bindsym $mod+Shift+w exec $netman
 bindsym $mod+Shift+s exec $grab
 bindsym $mod+Shift+n exec $notes
-bindsym $mod+q exec $lock
+bindsym $mod+l exec $lock
 bindsym $mod+Shift+x exec /usr/local/bin/all.sh
 bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 bindsym XF86MonBrightnessUp exec brightnessctl s +10%
@@ -66,6 +67,7 @@ bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+bindsym $mod+Shift+o move workspace to output right
 
 # Custom Input Configuration
 input type:touchpad {
@@ -75,7 +77,12 @@ input type:touchpad {
     middle_emulation enabled
 }
 
+exec_always swayidle -w \
+  timeout 300 'swaymsg "output * dpms off"' \
+  resume 'swaymsg "output * dpms on"' \
+  before-sleep 'swaylock -i $HOME/.wallpaper/lock.jpg'
 
+exec_always autotiling
 
 ## Output configuration
 #
@@ -131,7 +138,7 @@ input type:touchpad {
     bindsym $mod+Return exec $term
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
@@ -155,7 +162,7 @@ input type:touchpad {
     bindsym $mod+$left focus left
     bindsym $mod+$down focus down
     bindsym $mod+$up focus up
-    bindsym $mod+$right focus right
+    # bindsym $mod+$right focus right
     # Or use $mod+[up|down|left|right]
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
